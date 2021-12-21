@@ -1,1 +1,1 @@
-# profanity-degree
+A program to indicate the degree of profanity in text.
