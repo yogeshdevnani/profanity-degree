@@ -1,6 +1,7 @@
 #Version 1.0
 #It just checks for words from a hard-coded dictionary.
 
+import os
 
 
 
@@ -35,9 +36,36 @@ def addWord():
     addWord()
 
 
+def modifyWords():
+    print ("1. Append a new file to existing file.")
+    print ("2. Change the existing list of words.")
+    temp = input("Enter your input:\n")
+    fileNames = os.listdir("dictionary")
+    for i in range(len(fileNames)):
+        print (i+1,"\t",fileNames[i])
+    fileChoice = int(input("Enter the desired file number.\t"))
+    tempDir = "dictionary\\" + fileNames[fileChoice - 1]
+    newWordList = open(tempDir, 'r')
+    if temp == '1':
+        dictAddWords.write("\n"+newWordList.read())
+        tempInput = input("File Modified Successfully! \n Remove the other file? Y/N\n")
+        newWordList.close()
+        if tempInput.lower() == 'y':
+            os.remove(tempDir)
+    elif temp == '2':
+        dictWriteWords = open("dictionary/wordsLevel1.txt", 'w')
+        dictWriteWords.write(newWordList.read())
+        newWordList.close()
+        os.remove(tempDir)
+        dictWriteWords.close()
+
+
+
 def degreeCalc(offensiveCount, totalCount):
     degree = offensiveCount/totalCount
     return degree
+
+
 
 
 def closeProgram():
@@ -49,7 +77,7 @@ def closeProgram():
 def menu():
     print ('1. View Results')
     print ('2. Add a new word')
-    print ('3. Change Word List')
+    print ('3. Modify Word List')
     print ('4. Change Data Set')
     print ('5. View ReadMe')
     print ('0. Search Using GOD Mode')
@@ -60,9 +88,10 @@ def menu():
     elif temp == '2':
         addWord()
     elif temp == '3':
-        print("")
+        #modify WordList
+        modifyWords()
     elif temp == '4':
-        print("")
+        print('')
     elif temp == '5':
         print()
     elif temp == '0':
@@ -74,4 +103,4 @@ dataFile = open("data/content.txt",'r')
 dictWords = open("dictionary/wordsLevel1.txt",'r')
 dictList = dictWords.read().split()
 dictAddWords = open('dictionary/wordsLevel1.txt', 'a')
-main()
+menu()
