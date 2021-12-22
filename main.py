@@ -2,7 +2,7 @@
 #It just checks for words from a hard-coded dictionary.
 
 import os
-
+from nltk import tokenize
 
 
 def main():
@@ -20,9 +20,10 @@ def main():
         offenseCount = 0
         for offensiveWord in dictList:
             if offensiveWord in sentence:
+                numberSentence =  len(tokenize.sent_tokenize(sentence))
                 offenseCount += 1
                 print (f'{"found", offensiveWord, sentence}')
-        # print (f'{"Profanity Degree ", degreeCalc(offenseCount, len(sentence.split()))}')
+                print (f'{"Profanity Degree ", degreeCalc(offenseCount, len(sentence.split()),numberSentence)}')
 
 
 
@@ -61,8 +62,8 @@ def modifyWords():
 
 
 
-def degreeCalc(offensiveCount, totalCount):
-    degree = offensiveCount/totalCount
+def degreeCalc(offensiveCount, totalCount,numberSentence):
+    degree = ((offensiveCount/totalCount) + (offensiveCount/numberSentence)) / 2
     return degree
 
 
