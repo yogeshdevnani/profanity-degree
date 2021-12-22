@@ -6,15 +6,15 @@ import os
 
 
 def main():
-    ## + function skinColor + man
     # colors are used to describe other things as well
-    # hence, if a {skin color} + attribute is what you are looking for
-    # for example {black man} - simply add 'black+man' to the dictionary - becomes {black man} with below code
+    # hence, if a {skin color} + attribute is what you are looking for - add brown guy
     # so next time any sentence that just uses the color black won't be marked as offensive
+    dictList = []
 
-    for index in range(len(dictList)):
-        if "+" in dictList[index]:
-            dictList[index] = dictList[index].replace("+", " ")
+    for line in dictWords.readlines():
+        if line == '\n':
+            continue
+        dictList.append(line.strip())
 
     for sentence in dataFile:
         offenseCount = 0
@@ -22,7 +22,7 @@ def main():
             if offensiveWord in sentence:
                 offenseCount += 1
                 print (f'{"found", offensiveWord, sentence}')
-        print (f'{"Profanity Degree ", degreeCalc(offenseCount, len(sentence.split()))}')
+        # print (f'{"Profanity Degree ", degreeCalc(offenseCount, len(sentence.split()))}')
 
 
 
@@ -101,6 +101,5 @@ def menu():
 
 dataFile = open("data/content.txt",'r')
 dictWords = open("dictionary/wordsLevel1.txt",'r')
-dictList = dictWords.read().split()
 dictAddWords = open('dictionary/wordsLevel1.txt', 'a')
 menu()
