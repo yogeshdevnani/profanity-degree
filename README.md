@@ -8,3 +8,4 @@ Number of sentences are calculated using nlkt (dependency included).
 
 This script has been made for a personal project.
 It is being kept public.
+Changing the scope of this to support NLP.
