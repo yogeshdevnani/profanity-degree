@@ -12,6 +12,7 @@ def processWords():
     # hence, if a {skin color} + attribute is what you are looking for - add brown guy
     # so next time any sentence that just uses the color black won't be marked as offensive
     dictList = []
+    count = 0
 
     for line in dictWords.readlines():
         if line == '\n':
