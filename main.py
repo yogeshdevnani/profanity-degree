@@ -38,6 +38,7 @@ def processWords():
 def addWord():
     wordToAdd = input("Type in the word that I missed: - Type 'exit' to exit \t")
     print (wordToAdd)
+    ctr = 0;
     if wordToAdd == 'exit':
         return
     elif (wordToAdd == ""):
