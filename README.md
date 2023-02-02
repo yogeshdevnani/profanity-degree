@@ -7,3 +7,4 @@ The degree of profanity is calculated by : {[(noOfOffensiveWords)/ (totalNumberO
 Number of sentences are calculated using nlkt (dependency included).
 
 This script has been made for a personal project.
+It is being kept public.
