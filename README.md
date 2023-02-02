@@ -5,3 +5,5 @@ Dictionary contains 'wordsToLook.txt', that contains the word that will be flagg
 
 The degree of profanity is calculated by : {[(noOfOffensiveWords)/ (totalNumberOfWords)] + [(noOfOffensiveWords)/ (totalNumberOfSentences)]} / 2 - It gives a better degree of profanity, as it includes the number of sentences
 Number of sentences are calculated using nlkt (dependency included).
+
+This script has been made for a personal project.
